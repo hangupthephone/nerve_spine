@@ -366,7 +366,7 @@ body {
 
       <!-- spine vis: body silhouette + SVG spine overlay -->
       <div class="spine-vis">
-        <img class="body-silhouette" src="Untitled_design.png" alt="body silhouette"/>
+        <img class="body-silhouette" src="bodypicture.png" alt="body silhouette"/>
         <svg class="spine-svg-overlay" width="70" height="210" viewBox="0 0 110 380">
           <g class="spine-seg" id="sv-cranial" onclick="show('cranial')">
             <circle cx="55" cy="30" r="22" fill="var(--cranial)"/>
