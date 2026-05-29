@@ -152,7 +152,6 @@ body {
 .region-btn[data-r="lumbar"].active   { border-left-color: var(--lumbar); }
 .region-btn[data-r="sacral"].active   { border-left-color: var(--sacral); }
 
-/* ── SPINE VISUALIZATION CONTAINER ── */
 .spine-vis {
   margin: 24px auto;
   position: relative;
@@ -164,8 +163,8 @@ body {
 
 .body-silhouette {
   position: absolute;
-  top: -14;
-  left: 49%;
+  top: -14px;                 /* 💡 Added 'px' to make sure the browser reads the shift up */
+  left: 36%;                  /* ⬅️ Shifted left from 49% */
   transform: translateX(-50%);
   height: 100%;               
   width: auto;                
@@ -176,11 +175,11 @@ body {
 
 .spine-svg-overlay {
   position: absolute;
-  top: 10px;                  /* Shifts everything down slightly to seat the circle perfectly on the head */
-  left: 50%;
+  top: 20px;                  /* Scaled proportional to the new height */
+  left: 36%;                  /* ⬅️ Matches the body's left anchor perfectly */
   transform: translateX(-50%);
-  width: 72px;                /* Tailored width alignment */
-  height: 225px;              /* Shrunk the SVG engine height by 55px so the sacrum stops at the hips */
+  width: 144px;               /* 🔄 Scaled up to perfectly match the double body size */
+  height: 450px;              /* 🔄 Scaled up to perfectly match the double body size */
   pointer-events: all;
 }
 
