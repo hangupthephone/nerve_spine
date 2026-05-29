@@ -156,39 +156,29 @@ body {
 .spine-vis {
   margin: 16px auto;
   position: relative;
-  width: 110px;       
-  height: 380px;      
+  width: 140px;        /* Slightly wider to give the silhouette shoulders room */
+  height: auto;        /* Let the body graphic naturally dictate the height */
   flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .body-silhouette {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 100%;        /* Keeps the body beautifully filling the container frame */
-  width: auto;         
-  object-fit: contain;   
+  display: block;
+  width: 100%;
+  height: auto;        /* Preserves natural image aspect ratio perfectly */
   opacity: 0.15;       
   pointer-events: none;
   user-select: none;
-  z-index: 1;
 }
 
 .spine-svg-overlay {
   position: absolute;
-  top: 50%;
+  /* This bounding box locks the spine strictly from the head down to the hips */
+  top: 4%;             
   left: 50%;
-  /* Zooms out the spine to 72% size and perfectly re-centers it over the torso */
-  transform: translate(-50%, -50%) scale(0.72); 
-  transform-origin: center center;
-  width: 110px;
-  height: 380px;
+  transform: translateX(-50%);
+  width: 78%;          /* Perfectly matches the width scale of the torso */
+  height: 72%;         /* Cuts off the bottom stretch so it ends cleanly at the pelvis */
   pointer-events: all;
-  z-index: 2;
 }
 
 .spine-seg {
