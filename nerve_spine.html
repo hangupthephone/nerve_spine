@@ -161,23 +161,35 @@ body {
   flex-shrink: 0;
 }
 
+.spine-vis {
+  margin: 24px auto;
+  position: relative;
+  width: 140px;               /* Doubles the display size so it's easy to read and click */
+  height: 280px;              /* Set frame height to cleanly fit head-to-pelvis anatomy */
+  overflow: hidden;           /* Automatically crops out the dead white space from the image sides */
+  flex-shrink: 0;
+}
+
 .body-silhouette {
-  display: block;
-  width: 100%;
-  height: auto;        /* Preserves natural image aspect ratio perfectly */
-  opacity: 0.15;       
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;               /* Perfectly anchors body height to our visual frame */
+  width: auto;                /* Prevents the image from squishing or distorting */
+  opacity: 0.15;              
   pointer-events: none;
   user-select: none;
 }
 
 .spine-svg-overlay {
   position: absolute;
-  /* This bounding box locks the spine strictly from the head down to the hips */
-  top: 4%;             
+  /* Precisely maps the SVG coordinates to match the head/torso of the silhouette */
+  top: 7px;                   
   left: 50%;
   transform: translateX(-50%);
-  width: 78%;          /* Perfectly matches the width scale of the torso */
-  height: 72%;         /* Cuts off the bottom stretch so it ends cleanly at the pelvis */
+  width: 82px;                /* Tailored width to map the vertebrae down the center line */
+  height: 280px;              /* Scales the spine elements down nicely within the trunk */
   pointer-events: all;
 }
 
@@ -186,9 +198,10 @@ body {
   transition: opacity .2s ease, filter .2s ease;
 }
 
+/* Adds a nice glow so patients know they can click the spine segments */
 .spine-seg:hover {
   opacity: 0.85 !important;
-  filter: drop-shadow(0 0 4px var(--text));
+  filter: drop-shadow(0 0 5px var(--text));
 }
 
 .detail {
