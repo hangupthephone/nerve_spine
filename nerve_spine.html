@@ -152,34 +152,44 @@ body {
 .region-btn[data-r="lumbar"].active   { border-left-color: var(--lumbar); }
 .region-btn[data-r="sacral"].active   { border-left-color: var(--sacral); }
 
-/* ── spine vis ── */
+/* ── FIXED SPINE VISUALIZATION CONTAINER ── */
 .spine-vis {
-  margin: 16px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 24px auto;
   position: relative;
-  width: 70px;
+  width: 110px;       
+  height: 380px;      
   flex-shrink: 0;
 }
+
 .body-silhouette {
-  width: 70px;
-  height: auto;
-  opacity: 0.12;
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  opacity: 0.15;       
   pointer-events: none;
   user-select: none;
 }
+
 .spine-svg-overlay {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: all;
 }
+
 .spine-seg {
   cursor: pointer;
-  transition: opacity .25s;
+  transition: opacity .2s ease, filter .2s ease;
+}
+
+.spine-seg:hover {
+  opacity: 0.85 !important;
+  filter: drop-shadow(0 0 4px var(--text));
 }
 
 .detail {
